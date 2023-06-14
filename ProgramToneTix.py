@@ -17,3 +17,19 @@ def welcome_message():
     print("Kami akan membantu Anda mendapatkan pengalaman konser yang luar biasa!")
     print("==============================================================")
     print()
+    
+def show_genre_menu():
+    print("Pilih nomor genre musik yang Anda minati:")
+    print("1. Jazz")
+    print("2. Rock")
+    print("3. Pop")
+    print("4. Dangdut")
+    print("5. Keluar")
+    print("\n===============================")
+    
+def get_genre_choice():
+    choice = input("\nMasukkan nomor genre musik yang Anda pilih: ")
+    return choice
+
+    
+ 
