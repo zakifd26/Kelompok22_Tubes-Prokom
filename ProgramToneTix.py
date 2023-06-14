@@ -378,5 +378,58 @@ def buy_reguler_ticket(concert):
             sys.exit()
         else:
             print("Pembayaran kurang. Mohon masukkan nominal pembayaran yang cukup.")  
+            
+if __name__ == "__main__":
+    welcome_message()
+
+    while True:
+        show_genre_menu()
+        genre = get_genre_choice()
+
+        if genre == "1":
+            concerts = show_jazz_concerts()
+            choose_jazz_concert(concerts)
+        elif genre == "2":
+            concerts = show_rock_concerts()
+            choose_rock_concert(concerts)
+        elif genre == "3":
+            concerts = show_pop_concerts()
+            choose_pop_concert(concerts)
+        elif genre == "4":
+            concerts = show_dangdut_concerts()
+            choose_dangdut_concert(concerts)
+        elif genre == "5":
+            print("Keluar dari program...")
+            break  # Keluar dari loop dan program berakhir
+        else:
+            print("Genre musik yang Anda pilih tidak valid.")
+            
+# Program utama
+if __name__ == "__main__":
+    welcome_message()
+
+    while True:
+        show_genre_menu()
+        genre = get_genre_choice()
+
+        if genre == "1":
+            concerts = show_jazz_concerts()
+            choose_jazz_concert(concerts)
+        elif genre == "2":
+            concerts = show_rock_concerts()
+            choose_rock_concert(concerts)
+        elif genre == "3":
+            concerts = show_pop_concerts()
+            choose_pop_concert(concerts)
+        elif genre == "4":
+            concerts = show_dangdut_concerts()
+            choose_dangdut_concert(concerts)
+        elif genre == "5":
+            print("Keluar dari program...")
+            break  # Keluar dari loop dan program berakhir
+        else:
+            print("Genre musik yang Anda pilih tidak valid.")            
+
+    
 
 
