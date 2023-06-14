@@ -278,3 +278,11 @@ def get_ticket_prices(genre, concert_number):
             if index + 1 == concert_number:
                 return int(row[7]), int(row[8])
     return None, None
+
+def buy_vip_ticket(concert):
+    nama =          input("Masukkan Nama    : ")
+    nik =           input("Masukkan NIK     : ")
+    email =         input("Masukkan Email   : ")
+    jumlah_tiket =  int(input("Masukkan jumlah tiket yang ingin Anda beli   : "))
+    no_rekening =   int(input("Masukkan No. Rekening    : "))
+
