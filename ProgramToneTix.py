@@ -229,6 +229,7 @@ def show_dangdut_concerts():
             print("=========================================")
             count += 1
         return concerts  
+    
 def choose_dangdut_concert(concerts):
     choice = input("\nMasukkan nomor konser yang Anda pilih: ")
     try:
@@ -267,3 +268,13 @@ def choose_dangdut_concert(concerts):
             print("Nomor konser yang Anda pilih tidak valid.")
     except ValueError:
         print("Input yang Anda masukkan bukan nomor konser yang valid.")
+        
+def get_ticket_prices(genre, concert_number):
+    filename = f"konser_{genre.lower()}.csv"
+    with open(filename, 'r') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for index, row in enumerate(reader):
+            if index + 1 == concert_number:
+                return int(row[7]), int(row[8])
+    return None, None
