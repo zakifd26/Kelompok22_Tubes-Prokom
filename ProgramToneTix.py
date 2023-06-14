@@ -285,4 +285,50 @@ def buy_vip_ticket(concert):
     email =         input("Masukkan Email   : ")
     jumlah_tiket =  int(input("Masukkan jumlah tiket yang ingin Anda beli   : "))
     no_rekening =   int(input("Masukkan No. Rekening    : "))
+    
+    harga_tiket = int(concert[7])
+    total_harga = harga_tiket*jumlah_tiket
+
+    tanggal_waktu = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open('data.csv', 'a', newline='') as file:
+         writer = csv.writer(file)
+         writer.writerow([tanggal_waktu,"Nama :", nama,"NIK :", nik,"email :", email,"Jumlah Tiket :", jumlah_tiket,"Nomor Rekening :", no_rekening])
+
+    print("Terima kasih, tiket VIP Anda telah berhasil dibeli.")
+    print("Total harga yang harus dibayar: Rp.", total_harga)
+    while True:
+        payment = int(input("Masukkan nominal pembayaran: "))
+        if payment == total_harga:
+            print("Pembayaran cukup. Tiket Anda telah diterbitkan.")
+            print("==================== TIKET KONSER ====================")         
+            kode_unik = random.randint(1000000000, 9999999999)
+            print("Nama         :", nama)
+            print("NIK          :", nik)
+            print("Email        :", email)
+            print("Jenis Tiket  :", "VIP")
+            print("Jumlah Tiket :", jumlah_tiket)
+            print("Kode Tiket   :", kode_unik)
+            print("=======================================================")
+            print("Silahkan tunjukkan E-Ticket ini di loket pembelian tiket")
+            print("             Untuk mendapatkan tiket Anda")
+            print("        Terima kasih. Selamat menikmati konser!")
+            sys.exit()
+        elif payment > total_harga:
+            print("Pembayaran cukup. Tiket Anda telah diterbitkan.")
+            print("==================== TIKET KONSER ====================")         
+            kode_unik = random.randint(1000000000, 9999999999)
+            print("Nama         :", nama)
+            print("NIK          :", nik)
+            print("Email        :", email)
+            print("Jenis Tiket  :", "Reguler")
+            print("Jumlah Tiket :", jumlah_tiket)
+            print("Kode Tiket   :", kode_unik)
+            print("Uang kembalian akan dikirim ke Nomor Rekening Anda")
+            print("=======================================================")
+            print("Silahkan tunjukkan E-Ticket ini di loket pembelian tiket")
+            print("             Untuk mendapatkan tiket Anda")
+            print("        Terima kasih. Selamat menikmati konser!")
+        else:
+            print("Pembayaran kurang. Mohon masukkan nominal pembayaran yang cukup.")
+
 
