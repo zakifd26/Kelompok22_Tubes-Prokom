@@ -229,4 +229,41 @@ def show_dangdut_concerts():
             print("=========================================")
             count += 1
         return concerts  
- 
+def choose_dangdut_concert(concerts):
+    choice = input("\nMasukkan nomor konser yang Anda pilih: ")
+    try:
+        choice = int(choice)
+        if 1 <= choice <= len(concerts):
+            chosen_concert = concerts[choice - 1]
+            print()
+            print("Anda memilih konser:", chosen_concert[0])
+            print("Line-up:")
+            print("- Line-up 1 :", chosen_concert[4])
+            print("- Line-up 2 :", chosen_concert[5])
+            print("- Line-up 3 :", chosen_concert[6])
+            print("Harga Tiket:")
+            print("- VIP     : Rp.", chosen_concert[7])
+            print("- Reguler : Rp.", chosen_concert[8])
+            print()
+
+            buy_ticket = input("Apakah Anda ingin membeli tiket? (ya/tidak): ")
+            if buy_ticket.lower() == "ya":
+                ticket_type = input("Pilih jenis tiket (VIP/Reguler): ")
+                if ticket_type.lower() == "vip":
+                    buy_vip_ticket(chosen_concert)
+                elif ticket_type.lower() == "reguler":
+                    buy_reguler_ticket(chosen_concert)
+                else:
+                    print("Jenis tiket yang Anda pilih tidak valid.")
+            else:
+                view_other_concerts = input("Apakah Anda ingin melihat konser yang lain? (ya/tidak): ")
+                if view_other_concerts.lower() == "ya":
+                    print("Kembali ke menu awal :")
+                else:
+                    print("Terima kasih telah menggunakan ToneTix!")
+                    sys.exit
+            
+        else:
+            print("Nomor konser yang Anda pilih tidak valid.")
+    except ValueError:
+        print("Input yang Anda masukkan bukan nomor konser yang valid.")
