@@ -150,6 +150,26 @@ def choose_rock_concert(concerts):
     except ValueError:
         print("Input yang Anda masukkan bukan nomor konser yang valid.")
         
+def show_pop_concerts():
+    with open('konser_pop.csv', 'r') as file:
+        reader = csv.reader(file)
+        next(reader)
+        print("Daftar Konser Pop yang Tersedia:")
+        print("=========================================")
+        count = 1
+        concerts = []  # List untuk menyimpan data konser
+        for row in reader:
+            concerts.append(row)  # Menambahkan data konser ke list
+            print("Nomor Konser :", count)
+            print("Nama Konser  :", row[0])
+            print("Venue        :", row[1])
+            print("Lokasi       :", row[2])
+            print("Tanggal      :", row[3])
+            print("Harga        : - VIP     : Rp. ",row[7])
+            print("               - Reguler : Rp. ",row[8])
+            print("=========================================")
+            count += 1
+        return concerts
     
     
  
